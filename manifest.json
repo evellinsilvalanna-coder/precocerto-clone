@@ -1,0 +1,37 @@
+{
+  "name": "Preço Certo",
+  "short_name": "Preço Certo",
+  "description": "Calcule o preço ideal dos seus produtos",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#E53935",
+  "icons": [
+    {
+      "src": "https://media.base44.com/images/public/6a357c8d5553d30c6b90df5a/54c0a1c8f_generated_image.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://media.base44.com/images/public/6a357c8d5553d30c6b90df5a/54c0a1c8f_generated_image.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://media.base44.com/images/public/6a357c8d5553d30c6b90df5a/54c0a1c8f_generated_image.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://media.base44.com/images/public/6a357c8d5553d30c6b90df5a/54c0a1c8f_generated_image.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
