@@ -177,5 +177,17 @@
     </main>
    </div>
   </div>
- </body>
+ 
+<script>
+(function(){
+  function hideGoogle(){
+    document.querySelectorAll("button").forEach(function(b){
+      if ((b.textContent || "").includes("Entrar com Google")) b.style.display="none";
+    });
+  }
+  new MutationObserver(hideGoogle).observe(document.documentElement,{childList:true,subtree:true});
+  hideGoogle();
+})();
+</script>
+</body>
 </html>
