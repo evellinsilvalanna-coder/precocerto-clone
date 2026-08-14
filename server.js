@@ -18,6 +18,7 @@ async function api(req,res){const u=new URL(req.url,'http://localhost'), p=u.pat
  let m=p.match(/^\/api\/apps\/[^/]+\/auth\/(login|register)$/);
  if(m){if(m[1]==='login'){const x=db.users.find(x=>x.email.toLowerCase()===String(b.email||'').toLowerCase());if(!x||!check(b.password,x.password_hash))return json(res,401,{message:'E-mail ou senha inválidos'});return json(res,200,{access_token:sign(x),user:pub(x)});}if(!b.email||!b.password)return json(res,400,{message:'E-mail e senha são obrigatórios'});if(db.users.some(x=>x.email.toLowerCase()===b.email.toLowerCase()))return json(res,409,{message:'E-mail já cadastrado'});const x={id:uuid(),email:b.email.toLowerCase(),full_name:b.full_name||b.name||'',password_hash:hash(b.password),role:db.users.length?'user':'admin',created_date:new Date().toISOString(),created_at:new Date().toISOString()};db.users.push(x);save();return json(res,201,{access_token:sign(x),user:pub(x)});}
  if(p.includes('/auth/logout'))return json(res,200,{ok:true});
+ if(p.match(/^\/api\/apps\/[^/]+\/auth\/(me|current-user)$/)){if(!me)return json(res,401,{message:'Não autenticado'});return json(res,200,pub(me));}
  if(!me)return json(res,401,{message:'Autenticação necessária'});
  if(p.match(/\/entities\/User\/me$/)){if(req.method==='GET')return json(res,200,pub(me));if(req.method==='PUT'){Object.assign(me,b);save();return json(res,200,pub(me));}}
  m=p.match(/^\/api\/apps\/[^/]+\/entities\/([^/]+)(?:\/([^/]+))?$/);
